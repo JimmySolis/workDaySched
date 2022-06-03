@@ -1,4 +1,14 @@
 $(document).ready(function(){
+
+    function displayTime(){
+        var today = $("#currentDay");
+    
+        today.text( moment().format("MMM Do, YYYY"));
+    }
+    displayTime();
+    
+    
+
 $(".saveBtn").on("click", function(){
     var textInput = $(this)
     .siblings(".description")
