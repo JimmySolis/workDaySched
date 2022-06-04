@@ -23,12 +23,15 @@ $(".saveBtn").on("click", function(){
 function updateHour(){
     var currentHour = moment().hours();
     $(".time-block").each(function(){
-    var blockHour = parseInt(
+    var blockHour =
+     parseInt(
         $(this)
         .attr('id')
         .split('-')[1]
     );
-    
+
+    console.log(currentHour);
+
     if(blockHour < currentHour){
         $(this).addClass("past");
     }else if(blockHour === currentHour){
@@ -40,6 +43,7 @@ function updateHour(){
         $(this).addClass("future");
     }
     });
+    
 }
 
 updateHour();
