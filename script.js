@@ -3,7 +3,7 @@ $(document).ready(function(){
     function displayTime(){
         var today = $("#currentDay");
     
-        today.text( moment().format("MMM Do, YYYY"));
+        today.text( moment().format("dddd, MMMM Do"));
     }
     displayTime();
     
@@ -21,13 +21,14 @@ $(".saveBtn").on("click", function(){
 })
 
 function updateHour(){
-    var currentHour = moment().hour();
+    var currentHour = moment().hours();
     $(".time-block").each(function(){
     var blockHour = parseInt(
         $(this)
         .attr('id')
         .split('-')[1]
     );
+    
     if(blockHour < currentHour){
         $(this).addClass("past");
     }else if(blockHour === currentHour){
@@ -38,10 +39,9 @@ function updateHour(){
         $(this).removeClass("present");
         $(this).addClass("future");
     }
-
-    
     });
 }
+
 updateHour();
 
 
